@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Clicker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="sectionLeft">
+        <center>
+            <div class="scoreContainer unselectable">
+                <span id="logs">0</span> logs<br>
+                <span id="logsPerSecond">0</span> logs per second
+            </div>
+            <br>
+            <div class="clickerContainer unselectable">
+                <img id="tree-image" src="images/tree.png" draggable="false" onclick="addToLogs(clickingPower)">
+            </div>
+        </center>
+
+        <div class="sectionFooter">
+            <h5>Tree Clicker</h5>
+        </div>
+    </div>
+
+    <div class="sectionRight">
+
+        <table class="shopButton unselectable" onclick="buyLumberjack()">
+            <tr>
+                <td id="image"><img src="images/lumberjack.png" draggable="false"></td>
+                <td id="nameAndCost">
+                    <p>Lumberjack</p>
+                    <p>Cost: <span id="lumberjackCost">15</span> Logs</p>
+                </td> 
+                <td id="amount"><span id="lumberjacks">0</span></td>
+        </table>
+
+        <table class="shopButton unselectable" onclick="buyAxe()">
+            <tr>
+                <td id="image"><img src="images/axe.png" draggable="false"></td>
+                <td id="nameAndCost">
+                    <p>Axe</p>
+                    <p>Cost: <span id="axeCost">100</span> Logs</p>
+                </td> 
+                <td id="amount"><span id="axes">0</span></td>
+        </table>
+
+        <table class="shopButton unselectable" onclick="buyChainsaw()">
+            <tr>
+                <td id="image"><img src="images/Chainsaw.png" draggable="false"></td>
+                <td id="nameAndCost">
+                    <p>Chainsaw</p>
+                    <p>Cost: <span id="chainsawCost">1000</span> Logs</p>
+                </td> 
+                <td id="amount"><span id="chainsaws">0</span></td>
+        </table>
+
+    </div>
+
+</body>
+<script src="js/script.js"></script>
+</html>
