@@ -90,6 +90,16 @@ function saveGame() {
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
 }
 
+//Brings up an alert asking to confirm if you want to reset the game. If you click confirm, your game will reset. The gameSave variable is empty, so it's overwriting the normal gameSave variable from the saveGame function. location.reload() makes it so it reloads the page after performing the action of saving/overwriting the old save or else after 30 seconds the game would just save where it was already at. Forcing the page (location) to reload prevents this from happening.
+
+function resetGame() {
+    if (confirm("Are you sure you want to reset your game?")) {
+        let gameSave = {};
+        localStorage.setItem("gameSave", JSON.stringify(gameSave));
+        location.reload();
+    }
+}
+
 // This will load the game when you refresh or open the webpage. This will also update logs per second and all purchased upgrades.
 
 window.onload = function() {
@@ -104,6 +114,8 @@ window.onload = function() {
     document.getElementById("chainsaws").innerHTML = chainsaws;
 }
 
+//This updates the title of the game every second by showing how many logs you have followed by the name of the game
+
 setInterval(function() {
     logs += lumberjacks;
     logs += axes * 5;
@@ -117,3 +129,12 @@ setInterval(function() {
 setInterval (function() {
     saveGame();
 }, 30000); //30000ms = 30 seconds
+
+//Makes it so the default save file page doesn't pop up, but instead saves the game
+
+document.addEventListener("keydown", function(event){
+    if (event.ctrlKey && event.which == 83) { //if control + s are pressed
+        event.preventDefault();
+        saveGame();
+    }
+}, false);
