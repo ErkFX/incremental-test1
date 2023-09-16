@@ -77,6 +77,8 @@ body {
     margin-top: 20%;
 }
 
+/* Makes it so whatever element has this class in it cannot be highlighted when clicked on multiple times or by clicking and dragging over it. */
+
 .unselectable {
     user-select: none;
 }
